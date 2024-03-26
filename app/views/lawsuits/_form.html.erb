@@ -1,0 +1,92 @@
+<%= form_with(model: lawsuit) do |form| %>
+  <% if lawsuit.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(lawsuit.errors.count, "error") %> prohibited this lawsuit from being saved:</h2>
+
+      <ul>
+        <% lawsuit.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :cn, style: "display: block" %>
+    <%= form.text_field :cn %>
+  </div>
+
+  <div>
+    <%= form.label :ct, style: "display: block" %>
+    <%= form.text_field :ct %>
+  </div>
+
+  <div>
+    <%= form.label :forum, style: "display: block" %>
+    <%= form.text_field :forum %>
+  </div>
+
+  <div>
+    <%= form.label :location, style: "display: block" %>
+    <%= form.text_field :location %>
+  </div>
+
+  <div>
+    <%= form.label :stage, style: "display: block" %>
+    <%= form.text_field :stage %>
+  </div>
+
+  <div>
+    <%= form.label :status, style: "display: block" %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div>
+    <%= form.label :judge, style: "display: block" %>
+    <%= form.text_field :judge %>
+  </div>
+
+  <div>
+    <%= form.label :old_judge, style: "display: block" %>
+    <%= form.text_field :old_judge %>
+  </div>
+
+  <div>
+    <%= form.label :dept, style: "display: block" %>
+    <%= form.text_field :dept %>
+  </div>
+
+  <div>
+    <%= form.label :lroa, style: "display: block" %>
+    <%= form.text_field :lroa %>
+  </div>
+
+  <div>
+    <%= form.label :lroa, style: "display: block" %>
+    <%= form.text_field :lroa %>
+  </div>
+
+  <div>
+    <%= form.label :atty_for, style: "display: block" %>
+    <%= form.text_field :atty_for %>
+  </div>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.label :plt_caption, style: "display: block" %>
+    <%= form.text_field :plt_caption %>
+  </div>
+
+  <div>
+    <%= form.label :def_caption, style: "display: block" %>
+    <%= form.text_field :def_caption %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,57 @@
+<%= form_with(model: oc) do |form| %>
+  <% if oc.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(oc.errors.count, "error") %> prohibited this oc from being saved:</h2>
+
+      <ul>
+        <% oc.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :full_name, style: "display: block" %>
+    <%= form.text_field :full_name %>
+  </div>
+
+  <div>
+    <%= form.label :sbn, style: "display: block" %>
+    <%= form.text_field :sbn %>
+  </div>
+
+  <div>
+    <%= form.label :fname, style: "display: block" %>
+    <%= form.text_field :fname %>
+  </div>
+
+  <div>
+    <%= form.label :address, style: "display: block" %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div>
+    <%= form.label :phone, style: "display: block" %>
+    <%= form.text_field :phone %>
+  </div>
+
+  <div>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :website, style: "display: block" %>
+    <%= form.text_field :website %>
+  </div>
+
+  <div>
+    <%= form.label :lawsuit_id, style: "display: block" %>
+    <%= form.text_field :lawsuit_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

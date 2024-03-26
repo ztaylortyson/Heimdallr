@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Lawsuits</h1>
+
+<div id="lawsuits">
+  <% @lawsuits.each do |lawsuit| %>
+    <%= lawsuit.ct %><%= lawsuit.cn %>
+    <%= link_to "Show", lawsuit %>
+    <%= link_to "Track", user_lawsuits_path(user: current_user, lawsuit: lawsuit), method: :post %><br>
+  <% end %>
+</div>
+
+

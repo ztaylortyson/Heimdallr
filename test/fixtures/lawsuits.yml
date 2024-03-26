@@ -1,0 +1,35 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cn: MyString
+  ct: MyString
+  forum: MyString
+  location: MyString
+  stage: MyString
+  status: MyString
+  judge: MyString
+  old_judge: MyString
+  dept: MyString
+  lroa: MyString
+  lroa: MyString
+  atty_for: MyString
+  user: one
+  plt_caption: MyString
+  def_caption: MyString
+
+two:
+  cn: MyString
+  ct: MyString
+  forum: MyString
+  location: MyString
+  stage: MyString
+  status: MyString
+  judge: MyString
+  old_judge: MyString
+  dept: MyString
+  lroa: MyString
+  lroa: MyString
+  atty_for: MyString
+  user: two
+  plt_caption: MyString
+  def_caption: MyString

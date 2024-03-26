@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Ocs</h1>
+
+<div id="ocs">
+  <% @ocs.each do |oc| %>
+    <%= render oc %>
+    <p>
+      <%= link_to "Show this oc", oc %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New oc", new_oc_path %>
