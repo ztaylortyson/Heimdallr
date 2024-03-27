@@ -2,6 +2,13 @@
     margin: 0px;
 }
 
+.notice {
+        color: green;
+}
+.alert {
+        color: red;
+}
+
 .logo-size {
         width: 1px; /* Set the width to desired size */
         height: 1px; /* Let the height adjust proportionally */

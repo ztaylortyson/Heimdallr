@@ -2,5 +2,5 @@
 <p>Find me in app/views/users/portfolio.html.erb</p>
 <hr> 
 <% @tracked_lawsuits.each do |lawsuit| %>
-		<%= lawsuit %> <%= link_to "Show", lawsuit %> 
+		<%= lawsuit.ct %> <%= lawsuit.cn %> <%= link_to "Show", lawsuit %> <%= link_to "Remove", users_remove_path(lawsuit) %><br>
 		<% end %>  

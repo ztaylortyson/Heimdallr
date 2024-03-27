@@ -7,7 +7,7 @@ Rails.application.routes.draw do
         sessions: 'users/sessions'
       }
 
-  
+  get 'users/remove', to: 'users#remove'
 
 
 

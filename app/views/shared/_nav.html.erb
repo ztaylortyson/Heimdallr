@@ -3,7 +3,7 @@
 	<%= link_to image_tag("logo"), root_path, class: "logo-size" %>
 	<%= current_user.fname %> 
 
-	
+	<%= link_to "Lawsuits", lawsuits_path %>
 
 	<% if current_user.admin == true %>
 			<%= link_to "Admin", admin_home_path %> 
