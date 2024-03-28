@@ -28,7 +28,7 @@
 
   <div>
     <%= form.label :lawsuit_id, style: "display: block" %>
-    <%= form.text_field :lawsuit_id %>
+    <%= form.collection_select :lawsuit_id, Lawsuit.order(:ct), :id, :ct %>
   </div>
 
   <div>

@@ -1,25 +1,27 @@
 
-date_filed - date complaint filed
+complaint_filed 
+old_complaint_filed  # if there are amendments
+
 paga_filed
-
-
-complaint_served
+old_paga_filed
 
 answer_filed
+old_answer_filed 
 
 cmc
+old_cmc
 
 first_expert_exchange
 second_expert-exchange
 
-msj 
-
 discovery_cutoff
+old_discovery_cutoff
 
-
-trc 
+trc
+old_trc 
 
 trial
+old_trial
 
 
 

@@ -2,6 +2,10 @@
     margin: 0px;
 }
 
+table, th, td {
+  border: 1px solid;
+}
+
 .notice {
         color: green;
 }

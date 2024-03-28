@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_26_190407) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_28_171245) do
   create_table "lawsuits", force: :cascade do |t|
     t.string "cn"
     t.string "ct"
@@ -53,6 +53,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_26_190407) do
     t.integer "lawsuit_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "rep"
     t.index ["lawsuit_id"], name: "index_participants_on_lawsuit_id"
   end
 

@@ -1,5 +1,4 @@
-<h1>Users#portfolio</h1>
-<p>Find me in app/views/users/portfolio.html.erb</p>
+<h3>Portfolio</h3>
 <hr> 
 <% @tracked_lawsuits.each do |lawsuit| %>
 		<%= lawsuit.ct %> <%= lawsuit.cn %> <%= link_to "Show", lawsuit %> <%= link_to "Remove", users_remove_path(lawsuit) %><br>

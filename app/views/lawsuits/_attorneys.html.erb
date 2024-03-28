@@ -1,0 +1,21 @@
+_attorneys
+<table>
+	<tr>
+		<th>Name:</th>
+		<th>Sbn:</th>
+		<th>Firm:</th>
+		<th>Address:</th>
+		<th>Phone:</th>
+		<th>Email:</th>
+	</tr>
+<% @lawsuit.ocs.each do |i| %>
+	<tr>
+		<td><%= i.full_name %></td>
+		<td><%= i.sbn %></td>
+		<td><%= i.fname %></td>
+		<td><%= i.address %></td>
+		<td><%= i.phone %></td>
+		<td><%= i.email %></td>
+	</tr> 
+  <% end %>
+</table>

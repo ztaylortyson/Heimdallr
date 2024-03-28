@@ -1,11 +1,15 @@
 <p style="color: green"><%= notice %></p>
-
+<%= link_to "Edit this lawsuit", edit_lawsuit_path(@lawsuit) %>
 <%= render @lawsuit %>
+<hr>
+  
+<%= render 'participants' %>
 
+<%= link_to "Back to lawsuits", lawsuits_path %>
+<%= link_to "Back to Portfolio", root_path %>
+<% if current_user.admin == true %>
+  <%= button_to "Destroy this lawsuit", @lawsuit, method: :delete %> 
+<% end %> 
+<hr>
 
-<div>
-  <%= link_to "Edit this lawsuit", edit_lawsuit_path(@lawsuit) %> |
-  <%= link_to "Back to lawsuits", lawsuits_path %>
-
-  <%= button_to "Destroy this lawsuit", @lawsuit, method: :delete %>
-</div>
+<%= render 'attorneys' %> 
