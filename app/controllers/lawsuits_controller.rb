@@ -8,6 +8,10 @@ class LawsuitsController < ApplicationController
 
   # GET /lawsuits/1 or /lawsuits/1.json
   def show
+      lawsuit = Lawsuit.find(params[:id])
+      court_dates = lawsuit.courtdates.first
+      @complaint = court_dates.complaint.inspect
+      @answer = court_dates.answer.inspect
   end
 
   # GET /lawsuits/new

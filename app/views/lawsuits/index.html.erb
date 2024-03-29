@@ -6,7 +6,11 @@
   <% @lawsuits.each do |lawsuit| %>
     <%= lawsuit.ct %><%= lawsuit.cn %>
     <%= link_to "Show", lawsuit %>
-    <%= link_to "Track", user_lawsuits_path(user: current_user, lawsuit: lawsuit), method: :post %><br>
+
+    <% if !current_user.already_tracking?(lawsuit) %>
+      <%= link_to "Track", user_lawsuits_path(user: current_user, lawsuit: lawsuit), method: :post %>
+    <% end %><br>
+
   <% end %>
 </div>
 

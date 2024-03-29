@@ -2,14 +2,37 @@
 <%= link_to "Edit this lawsuit", edit_lawsuit_path(@lawsuit) %>
 <%= render @lawsuit %>
 <hr>
-  
-<%= render 'participants' %>
-
-<%= link_to "Back to lawsuits", lawsuits_path %>
-<%= link_to "Back to Portfolio", root_path %>
-<% if current_user.admin == true %>
-  <%= button_to "Destroy this lawsuit", @lawsuit, method: :delete %> 
-<% end %> 
+    Complaint filed: <%= @complaint %> 
+    Answer: <%= @answer %> 
 <hr>
+    Trial: <br>
+    TRC:   <br>
 
-<%= render 'attorneys' %> 
+    Discovery Cutoff: <br>
+
+    1st Expert Exchange: <br>
+    2nd Expert Exchange  <br>
+<hr>
+<div class="content">
+
+    <%= render 'participants' %>
+
+    <%= link_to "Back to lawsuits", lawsuits_path %>
+    <%= link_to "Back to Portfolio", root_path %>
+    <% if current_user.admin == true %>
+      <%= link_to "Edit lawsuit", edit_lawsuit_path %>
+      <%= button_to "Destroy this lawsuit", @lawsuit, method: :delete %> 
+    <% end %> 
+    <hr>
+
+    <%= render 'attorneys' %> 
+
+</div>
+
+
+
+<footer class="portfolio-footer">
+  <p>Generate Documents</p>
+  <p> <%= link_to "Pleading", "#" %>
+      <%= link_to "Proof of Service - Electronic", "#" %> </p>
+</footer>

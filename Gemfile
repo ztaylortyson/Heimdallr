@@ -5,6 +5,13 @@ ruby "3.0.0"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.2"
 
+# Zack's additions
+gem "selenium-webdriver"
+gem "webdrivers"
+gem "docx"
+gem "pdf-reader"
+gem "pdf-forms"
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
@@ -63,7 +70,7 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
-  gem "selenium-webdriver"
+  
 end
 
 gem "devise", "~> 4.9"

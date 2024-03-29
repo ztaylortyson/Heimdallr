@@ -10,7 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_28_171245) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_28_203138) do
+  create_table "courtdates", force: :cascade do |t|
+    t.date "complaint"
+    t.string "old_complaint"
+    t.date "paga"
+    t.string "old_paga"
+    t.date "answer"
+    t.string "old_answer"
+    t.date "cmc"
+    t.string "old_cmc"
+    t.date "first_expert_exchange"
+    t.date "second_expert_exchange"
+    t.date "discovery_cutoff"
+    t.string "old_discovery_cutoff"
+    t.date "trc"
+    t.string "old_trc"
+    t.date "trial"
+    t.string "old_trial"
+    t.integer "lawsuit_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lawsuit_id"], name: "index_courtdates_on_lawsuit_id"
+  end
+
   create_table "lawsuits", force: :cascade do |t|
     t.string "cn"
     t.string "ct"
@@ -87,6 +110,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_171245) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "courtdates", "lawsuits"
   add_foreign_key "ocs", "lawsuits"
   add_foreign_key "participants", "lawsuits"
   add_foreign_key "user_lawsuits", "lawsuits"

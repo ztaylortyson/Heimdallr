@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Courtdates</h1>
+
+<div id="courtdates">
+  <% @courtdates.each do |courtdate| %>
+    <%= render courtdate %>
+    <p>
+      <%= link_to "Show this courtdate", courtdate %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New courtdate", new_courtdate_path %>

@@ -9,4 +9,12 @@ class User < ApplicationRecord
 
 
 
+   
+
+    def already_tracking?(lawsuit_id)
+        lawsuits.exists?(id: lawsuit_id) 
+    end 
+
+
+
 end

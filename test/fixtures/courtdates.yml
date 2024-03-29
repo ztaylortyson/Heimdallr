@@ -1,0 +1,39 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  complaint: 2024-03-28
+  old_complaint: MyString
+  paga: 2024-03-28
+  old_paga: MyString
+  answer: 2024-03-28
+  old_answer: MyString
+  cmc: 2024-03-28
+  old_cmc: MyString
+  first_expert_exchange: 2024-03-28
+  second_expert_exchange: 2024-03-28
+  discovery_cutoff: 2024-03-28
+  old_discovery_cutoff: MyString
+  trc: 2024-03-28
+  old_trc: MyString
+  trial: 2024-03-28
+  old_trial: MyString
+  lawsuit: one
+
+two:
+  complaint: 2024-03-28
+  old_complaint: MyString
+  paga: 2024-03-28
+  old_paga: MyString
+  answer: 2024-03-28
+  old_answer: MyString
+  cmc: 2024-03-28
+  old_cmc: MyString
+  first_expert_exchange: 2024-03-28
+  second_expert_exchange: 2024-03-28
+  discovery_cutoff: 2024-03-28
+  old_discovery_cutoff: MyString
+  trc: 2024-03-28
+  old_trc: MyString
+  trial: 2024-03-28
+  old_trial: MyString
+  lawsuit: two

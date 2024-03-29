@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :courtdates
   root 'users#portfolio'
   resources :user_lawsuits
   get 'admin/home'

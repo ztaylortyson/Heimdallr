@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @courtdate %>
+
+<div>
+  <%= link_to "Edit this courtdate", edit_courtdate_path(@courtdate) %> |
+  <%= link_to "Back to courtdates", courtdates_path %>
+
+  <%= button_to "Destroy this courtdate", @courtdate, method: :delete %>
+</div>

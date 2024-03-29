@@ -2,6 +2,22 @@
     margin: 0px;
 }
 
+
+
+.content {
+    flex: 1;
+    /* This will push the footer to the bottom */
+    margin-bottom: 100px; /* Adjust according to your footer height */
+
+}
+
+.footer {
+    /* Your footer styles */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
 table, th, td {
   border: 1px solid;
 }
