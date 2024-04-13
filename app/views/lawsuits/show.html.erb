@@ -1,17 +1,12 @@
 <p style="color: green"><%= notice %></p>
 <%= link_to "Edit this lawsuit", edit_lawsuit_path(@lawsuit) %>
+
 <%= render @lawsuit %>
 <hr>
     Complaint filed: <%= @complaint %> 
     Answer: <%= @answer %> 
 <hr>
-    Trial: <br>
-    TRC:   <br>
-
-    Discovery Cutoff: <br>
-
-    1st Expert Exchange: <br>
-    2nd Expert Exchange  <br>
+    <%= render 'courtdates' %>
 <hr>
 <div class="content">
 
@@ -33,6 +28,6 @@
 
 <footer class="portfolio-footer">
   <p>Generate Documents</p>
-  <p> <%= link_to "Pleading", "#" %>
-      <%= link_to "Proof of Service - Electronic", "#" %> </p>
+  <p> <%= link_to "Pleading", pleadings_generic_path(@lawsuit) %>
+      <%= link_to "Proof of Service - Electronic", jcfs_pes_path(@lawsuit) %> </p>
 </footer>

@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'jcfs/pes'
+  get 'pleadings/generic'
+  get 'pleadings/memo_panda'
+  get 'pleadings/notice_of_motion'
+  get 'pleadings/atty_decl'
   resources :courtdates
   root 'users#portfolio'
   resources :user_lawsuits

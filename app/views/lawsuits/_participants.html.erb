@@ -4,13 +4,13 @@ _participants<br>
 	<tr>
 		<th>Name:</th>
 		<th>Role:</th>
-		<th>Rep:</th>
+		
 	</tr>
 <% @lawsuit.participants.each do |i| %>
 	<tr>
 		<td><%= i.name %></td>
 		<td><%= i.role %></td>
-		<td><%= i.rep %></td>
+		
 	</tr> 
   <% end %>
 </table>

@@ -9,9 +9,49 @@ class LawsuitsController < ApplicationController
   # GET /lawsuits/1 or /lawsuits/1.json
   def show
       lawsuit = Lawsuit.find(params[:id])
-      court_dates = lawsuit.courtdates.first
-      @complaint = court_dates.complaint.inspect
-      @answer = court_dates.answer.inspect
+      court_dates = lawsuit.courtdate
+      #@complaint = court_dates.complaint.inspect
+
+      if !court_dates.answer.nil?
+        @answer = court_dates.answer.inspect
+      else
+        @answer = "No answer on file."
+      end
+
+
+
+      if !court_dates.trial.nil?
+        @trial = court_dates.trial.inspect
+      else
+        @trial = "Not set"
+      end
+
+      #@oneofive = (court_dates.trial - 105).inspect
+
+
+      if !court_dates.trc.nil?
+        @trc = court_dates.trc.inspect
+      else
+        @trc = "Not set"
+      end
+
+      if !court_dates.discovery_cutoff.nil?
+        @discovery_cutoff = court_dates.discovery_cutoff.inspect
+      else
+        @discovery_cutoff = "Not set"
+      end
+
+      if !court_dates.first_expert_exchange.nil?
+        @first_expert_exchange = court_dates.first_expert_exchange.inspect
+      else
+        @first_expert_exchange = "Not set"
+      end
+
+      if !court_dates.second_expert_exchange.nil?
+        @second_expert_exchange = court_dates.second_expert_exchange.inspect
+      else
+        @second_expert_exchange = "Not set"
+      end
   end
 
   # GET /lawsuits/new
