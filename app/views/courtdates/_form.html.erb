@@ -91,12 +91,15 @@
     <%= form.text_field :old_trial %>
   </div>
 
+ 
+
   <div>
     <%= form.label :lawsuit_id, style: "display: block" %>
-    <%= form.collection_select :lawsuit_id, Lawsuit.order(:ct), :id, :ct %>
+    <%= form.number_field :lawsuit_id, value: @l_id %>
   </div>
 
   <div>
     <%= form.submit %>
+
   </div>
 <% end %>

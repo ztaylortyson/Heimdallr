@@ -1,0 +1,53 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fname: MyString
+  mname: MyString
+  lname: MyString
+  email: MyString
+  phone: MyString
+  address: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  dob: 2024-05-17
+  ssn: MyString
+  gender: MyString
+  married: false
+  summary: MyText
+  doh: 2024-05-17
+  dot: 2024-05-17
+  job_title: MyString
+  work_email: MyString
+  exempt: false
+  commissions: false
+  pay_type: 1
+  pay_rate: 9.99
+  emergency_contact: MyString
+  emergency_phone: MyString
+
+two:
+  fname: MyString
+  mname: MyString
+  lname: MyString
+  email: MyString
+  phone: MyString
+  address: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  dob: 2024-05-17
+  ssn: MyString
+  gender: MyString
+  married: false
+  summary: MyText
+  doh: 2024-05-17
+  dot: 2024-05-17
+  job_title: MyString
+  work_email: MyString
+  exempt: false
+  commissions: false
+  pay_type: 1
+  pay_rate: 9.99
+  emergency_contact: MyString
+  emergency_phone: MyString

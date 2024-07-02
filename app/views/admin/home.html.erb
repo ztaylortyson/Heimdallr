@@ -3,9 +3,14 @@
 <hr>
 	<ul>
 		<li><%= link_to "New lawsuit", new_lawsuit_path %></li>
-		<li></li>
-		
+		<li><%= link_to "New Attorney", new_oc_path %></li>
+		<li><%= link_to "New Client", new_client_path %></li>
+		<li><%= link_to "View All Clients", clients_path %></li>
 	</ul>
 <hr>
 
-<%= link_to "New Attorney", new_oc_path %>
+	
+<hr>
+<%= params.inspect %>
+
+

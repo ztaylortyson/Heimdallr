@@ -1,0 +1,16 @@
+<strong>pns</strong><br>
+<div>
+	<%= form_with url: "/pns_search", method: :get do |form| %>
+	  	<%= form.label :pns_search, "Last name / Business name:" %>
+	  	<%= form.text_field :pns_search %>
+	  	<%= form.submit "Search" %>
+	<% end %>
+</div><br>
+
+<div>
+	<%= form_with url: "/roa_search", method: :get do |form| %>
+	  	<%= form.label :roa_search, "ROA Search (2023-28893):" %>
+	  	<%= form.text_field :roa_search %>
+	  	<%= form.submit "Search" %>
+	<% end %>
+</div>

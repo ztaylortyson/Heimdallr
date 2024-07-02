@@ -13,12 +13,12 @@
 
   <div>
     <%= form.label :cn, style: "display: block" %>
-    <%= form.text_field :cn %>
+    <%= form.text_field :cn, class: 'form-input' %>
   </div>
 
   <div>
     <%= form.label :ct, style: "display: block" %>
-    <%= form.text_field :ct %>
+    <%= form.text_field :ct, class: 'form-input' %>
   </div>
 
   <div>
@@ -68,7 +68,7 @@
 
   <div>
     <%= form.label :atty_for, style: "display: block" %>
-    <%= form.text_field :atty_for %>
+    <%= form.text_field :atty_for, class: 'form-input' %>
   </div>
 
   <div>
@@ -78,14 +78,66 @@
 
   <div>
     <%= form.label :plt_caption, style: "display: block" %>
-    <%= form.text_field :plt_caption %>
+    <%= form.text_field :plt_caption, class: 'caption-input' %>
   </div>
 
   <div>
     <%= form.label :def_caption, style: "display: block" %>
-    <%= form.text_field :def_caption %>
+    <%= form.text_field :def_caption, class: 'caption-input' %>
   </div>
 
+  <div>
+    <%= form.label :ct_county, style: "display: block" %>
+    <%= form.text_field :ct_county, class: 'form-input' %>
+  </div>
+  <div>
+    <%= form.label :ct_street_address, style: "display: block" %>
+    <%= form.text_field :ct_street_address, class: 'form-input' %>
+  </div>
+  <div>
+    <%= form.label :ct_mail_address, style: "display: block" %>
+    <%= form.text_field :ct_mail_address, class: 'form-input' %>
+  </div>
+  <div>
+    <%= form.label :ct_city_zip, style: "display: block" %>
+    <%= form.text_field :ct_city_zip, class: 'form-input' %>
+  </div>
+  <div>
+    <%= form.label :ct_branch, style: "display: block" %>
+    <%= form.text_field :ct_branch, class: 'form-input' %>
+  </div>
+
+  <hr>
+    courtdate
+    <%= form.fields_for :courtdate do |i| %>
+      <%= i.label :complaint %>
+      <%= i.date_field :complaint %>
+
+      <%= i.label :answer %>
+      <%= i.date_field :answer %>
+
+      <%= i.label :cmc %>
+      <%= i.date_field :cmc %>
+
+      <%= i.label :trial %>
+      <%= i.date_field :trial %>
+
+      <%= i.label :trc %>
+      <%= i.date_field :trc %>
+
+      <%= i.label :discovery_cutoff %>
+      <%= i.date_field :discovery_cutoff %>
+
+      <%= i.label :first_expert_exchange %>
+      <%= i.date_field :first_expert_exchange %>
+
+      <%= i.label :second_expert_exchange %>
+      <%= i.date_field :second_expert_exchange %>
+    
+    <% end %>
+
+
+  <hr>
   <div>
     <%= form.submit %>
   </div>

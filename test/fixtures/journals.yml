@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lawsuit: one
+  entry: MyText
+  binder: MyString
+  issue: MyString
+  costs: 9.99
+
+two:
+  lawsuit: two
+  entry: MyText
+  binder: MyString
+  issue: MyString
+  costs: 9.99

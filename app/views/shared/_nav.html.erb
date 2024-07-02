@@ -3,20 +3,33 @@
 	<%= link_to image_tag("logo"), root_path, class: "logo-size" %>
 	<%= current_user.fname %> 
 
+	<% if params[:action] != "intake" && params[:action] != "show" %>
+		<%= link_to "Journal Entries", journals_path %>
+	<% end %>
+
+	<%= link_to "Clients", users_clients_portfolio_path %>
+
 	<%= link_to "Lawsuits", lawsuits_path %>
 
 	<%= link_to "Attorneys", ocs_path %> 
 
 	<% if current_user.admin == true %>
-			<%= link_to "Admin", admin_home_path %> 
+			<%= link_to "Admin", admin_home_path %>
+			<%= link_to "Clients", clients_path %> 
 			<%= link_to "Participants", participants_path %> 
-			<%= link_to "Court Dates", courtdates_path %>
-			
+			<%= link_to "Court Dates", courtdates_path %>		
 	<% end %> 
 
 	<% if current_user.dev == true %>
-			<%= link_to "Users -tdb", "#" %> 
+			<%= link_to "Dev", dev_home_path %> 
 	<% end %>
+
+
+
+	<% if params[:action] != "intake" %>
+		<%= link_to "Initiate New Case", initiate_nc_intake_path, class: 'button' %>
+	<% end %>
+
 
 	<%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "top-right" %>
 

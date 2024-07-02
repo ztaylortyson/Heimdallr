@@ -1,0 +1,31 @@
+notes.txt
+
+coa lc 216 employer had the $ to pay but chose not to pay. 
+	1. employer refuses to pay
+	2. employer has the ability to pay
+		// unlike 203, employer's ability to pay is an essential element
+	3. employee has made a demand for payment
+	4. basis:
+		a. Employer disputes amount or validity
+			// if not the entirety - why hasn't employer paid the remainder
+		b. Employer attempting to secure discount on indebtedness
+			// ask employer whether if employee had offered to accept (a significant discount) discount on indebtedness would they have agreed? get employer to say 'Yes'
+
+coa lc 221 illegal deductions
+	1. were the deductions unanticipated or unexpect for the employee
+		 // admit employee knew or expected x deduction would be made . . 
+
+coa lc 223 < statute or contractual agreed amount
+
+coa lc 224 Deductions from Wages
+	Allowed where:
+		1. required || empowered under state || federal law.
+
+		# 20026
+
+
+		SROG identify by stating the describing all categories of deductions for which employer had written consent from the employee.
+
+
+	ccp 487.02
+	earnings 706.011

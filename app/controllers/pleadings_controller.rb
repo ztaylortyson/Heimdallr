@@ -13,17 +13,30 @@ class PleadingsController < ApplicationController
       @doc.bookmarks['atty_for_top'].insert_text_after(@lawsuit.atty_for)
       @doc.bookmarks['atty_for_middle'].insert_text_after(@lawsuit.atty_for)
       @doc.bookmarks['atty_for_bottom'].insert_text_after(@lawsuit.atty_for)
-      @doc.bookmarks['date_filed'].insert_text_after(@lawsuit.courtdates.first.complaint.strftime("%m/%d/%Y"))
+      @doc.bookmarks['date_filed'].insert_text_after(@lawsuit.courtdate.complaint.strftime("%m/%d/%Y"))
       
       @doc.bookmarks['plt_caption'].insert_text_after(@lawsuit.plt_caption)
       @doc.bookmarks['def_caption'].insert_text_after(@lawsuit.def_caption)
       @doc.bookmarks['cn'].insert_text_after(@lawsuit.cn)
       @doc.bookmarks['judge'].insert_text_after(@lawsuit.judge)
-      @doc.bookmarks['dept'].insert_text_after(@lawsuit.dept)
+      @doc.bookmarks['dept'].insert_text_after(@lawsuit.dept) 
   end
+
+  def populate_t
+    @doc.bookmarks['atty_for'].insert_text_after(@lawsuit.atty_for)
+    @doc.bookmarks['atty_for'].insert_text_after(@lawsuit.atty_for)
+    @doc.bookmarks['atty_for'].insert_text_after(@lawsuit.atty_for)
+  end
+
   def download
     send_file "#{@lawsuit.atty_for}-generic.docx", :disposition => 'attachment'
   end
+
+    def download_t
+      send_file "test.docx", :disposition => 'attachment'
+    end
+  
+
   def generic
     set_lawsuit
     goto_doc_folder
@@ -41,4 +54,15 @@ class PleadingsController < ApplicationController
 
   def atty_decl
   end
+
+  def test
+    set_lawsuit
+    goto_doc_folder
+    @doc = Docx::Document.open('blah.docx')
+    populate_t
+    @doc.save("test.docx")
+    download_t
+  end
+
+
 end

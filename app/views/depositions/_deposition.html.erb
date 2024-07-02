@@ -1,0 +1,39 @@
+
+<div id="<%= dom_id deposition %>">
+
+<%= form_with(model: deposition) do |form| %>
+  <% if deposition.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(deposition.errors.count, "error") %> prohibited this participant from being saved:</h2>
+
+      <ul>
+        <% deposition.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :depo_date, style: "display: block" %>
+    <%= form.date_field :depo_date %>
+  </div>
+
+  <div>
+      <%= form.label :depo_time %>
+      <%= form.time_field :depo_time %>
+  </div>
+
+  <div>
+      <%= form.label :deponent %>
+      <%= form.text_field :deponent %>
+  </div>
+
+
+
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+</div>

@@ -1,4 +1,7 @@
 class CourtdatesController < ApplicationController
+
+  include CourtdatesHelper
+
   before_action :set_courtdate, only: %i[ show edit update destroy ]
 
   # GET /courtdates or /courtdates.json
@@ -12,11 +15,23 @@ class CourtdatesController < ApplicationController
 
   # GET /courtdates/new
   def new
+    @l_id = params[:format]
+    @lsuit = Lawsuit.find(@l_id)
     @courtdate = Courtdate.new
+    # Lawsuit.order(:ct), :id, :ct
   end
+
+  def zedit
+    @l_id = params[:format]
+    puts " = = = = = = >"
+    @lsuit = Lawsuit.find(@l_id)
+    @courtdate = @lsuit.courtdate
+  end
+
 
   # GET /courtdates/1/edit
   def edit
+   
   end
 
   # POST /courtdates or /courtdates.json
@@ -25,7 +40,7 @@ class CourtdatesController < ApplicationController
 
     respond_to do |format|
       if @courtdate.save
-        format.html { redirect_to courtdate_url(@courtdate), notice: "Courtdate was successfully created." }
+        format.html { redirect_to user_lawsuits_path, notice: "Courtdate was successfully created." }
         format.json { render :show, status: :created, location: @courtdate }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +53,8 @@ class CourtdatesController < ApplicationController
   def update
     respond_to do |format|
       if @courtdate.update(courtdate_params)
-        format.html { redirect_to courtdate_url(@courtdate), notice: "Courtdate was successfully updated." }
+        format.html { redirect_to user_lawsuits_path }
+        #format.html { redirect_to courtdate_url(@courtdate), notice: "Courtdate was successfully updated." }
         format.json { render :show, status: :ok, location: @courtdate }
       else
         format.html { render :edit, status: :unprocessable_entity }

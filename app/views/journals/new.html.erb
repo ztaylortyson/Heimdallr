@@ -1,0 +1,51 @@
+
+<div class="journal-form">
+  <h1>New journal</h1>
+  <%= render "form", journal: @journal %>
+</div>
+
+
+
+
+
+
+
+
+
+<script>
+  const status_field = document.getElementById("journal_status");
+  const jdd = document.getElementById("hidden-journal-due-date");
+
+    status_field.addEventListener('change', function(){
+        if(this.value != "NA") {
+         jdd.style.display = "block";
+       }
+
+        
+      })
+    // const binder = document.getElementById('journal_binder');
+    // const mc_box = document.getElementById('mc');
+
+    // binder.addEventListener('change', function() {
+    //   if(this.value == 'Discovery') {
+    //     console.log('fooo')
+    //   } else 
+    //   {
+    //     console.log("bar")
+    //   }
+    // })
+
+
+    // STATUS
+    
+
+    // mc_box.addEventListener('change', function() {
+    //   if(this.checked){
+    //     console.log("checked")
+    //   } else {
+    //     console.log("uncheck")
+    //   }
+    // });
+
+
+</script>

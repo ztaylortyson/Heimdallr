@@ -1,0 +1,137 @@
+<%= form_with(model: client) do |form| %>
+  <% if client.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(client.errors.count, "error") %> prohibited this client from being saved:</h2>
+
+      <ul>
+        <% client.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :fname, style: "display: block" %>
+    <%= form.text_field :fname %>
+  </div>
+
+  <div>
+    <%= form.label :mname, style: "display: block" %>
+    <%= form.text_field :mname %>
+  </div>
+
+  <div>
+    <%= form.label :lname, style: "display: block" %>
+    <%= form.text_field :lname %>
+  </div>
+
+  <div>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :phone, style: "display: block" %>
+    <%= form.text_field :phone %>
+  </div>
+
+  <div>
+    <%= form.label :address, style: "display: block" %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div>
+    <%= form.label :city, style: "display: block" %>
+    <%= form.text_field :city %>
+  </div>
+
+  <div>
+    <%= form.label :state, style: "display: block" %>
+    <%= form.text_field :state %>
+  </div>
+
+  <div>
+    <%= form.label :zip, style: "display: block" %>
+    <%= form.text_field :zip %>
+  </div>
+
+  <div>
+    <%= form.label :dob, style: "display: block" %>
+    <%= form.date_field :dob %>
+  </div>
+
+  <div>
+    <%= form.label :ssn, style: "display: block" %>
+    <%= form.text_field :ssn %>
+  </div>
+
+  <div>
+    <%= form.label :gender, style: "display: block" %>
+    <%= form.text_field :gender %>
+  </div>
+
+  <div>
+    <%= form.label :married, style: "display: block" %>
+    <%= form.check_box :married %>
+  </div>
+
+  <div>
+    <%= form.label :summary, style: "display: block" %>
+    <%= form.text_area :summary %>
+  </div>
+
+  <div>
+    <%= form.label :doh, style: "display: block" %>
+    <%= form.date_field :doh %>
+  </div>
+
+  <div>
+    <%= form.label :dot, style: "display: block" %>
+    <%= form.date_field :dot %>
+  </div>
+
+  <div>
+    <%= form.label :job_title, style: "display: block" %>
+    <%= form.text_field :job_title %>
+  </div>
+
+  <div>
+    <%= form.label :work_email, style: "display: block" %>
+    <%= form.text_field :work_email %>
+  </div>
+
+  <div>
+    <%= form.label :exempt, style: "display: block" %>
+    <%= form.check_box :exempt %>
+  </div>
+
+  <div>
+    <%= form.label :commissions, style: "display: block" %>
+    <%= form.check_box :commissions %>
+  </div>
+
+  <div>
+    <%= form.label :pay_type, style: "display: block" %>
+    <%= form.number_field :pay_type %>
+  </div>
+
+  <div>
+    <%= form.label :pay_rate, style: "display: block" %>
+    <%= form.text_field :pay_rate %>
+  </div>
+
+  <div>
+    <%= form.label :emergency_contact, style: "display: block" %>
+    <%= form.text_field :emergency_contact %>
+  </div>
+
+  <div>
+    <%= form.label :emergency_phone, style: "display: block" %>
+    <%= form.text_field :emergency_phone %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

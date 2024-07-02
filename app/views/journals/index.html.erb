@@ -1,0 +1,36 @@
+<p style="color: green"><%= notice %></p>
+
+<h1><%= current_user.full_name %> - Journal Entries</h1>
+ <table>
+    <tr>
+      <th>Lawsuit ID:</th>
+      <th>Created:</th>
+      <th>Entry</th>
+      <th>Binder</th>
+      <th>Issue</th>
+      <th>Costs</th>
+      <th>Destroy</th>
+    </tr>
+      <% @journals.each do |journal| %>
+    <tr>
+        <td><%= journal.lawsuit_id %></td>
+        <td><%= journal.created_at.strftime("%m-%d-%Y") %></td>
+        <td><%= journal.entry %></td>
+        <td><%= journal.binder %></td>
+        <td><%= journal.issue %></td>
+        <td><%= journal.costs %></td>
+        <td><%= button_to "Remove", journal, method: :delete %>
+    </tr>
+      <% end %>
+  </table>
+
+
+
+
+  
+
+ 
+
+
+<br>
+<%= link_to "New journal", new_journal_path %>

@@ -1,0 +1,60 @@
+<h1>New deposition</h1>
+
+<%= form_with(model: @deposition) do |form| %>
+  <% if @deposition.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@deposition.errors.count, "error") %> prohibited this participant from being saved:</h2>
+
+      <ul>
+        <% @deposition.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :depo_date %>
+    <%= form.date_field :depo_date %>
+
+    <%= form.label :depo_time %>
+    <%= form.time_field :depo_time %>
+
+    <%= form.label :doc_req %>
+    <%= form.check_box :doc_req %>
+
+    <div>
+      <%= form.label :propounding_party %>
+      <%= form.text_field :propounding_party %>
+    </div>
+
+    <div>
+      <%= form.label :deponent %>
+      <%= form.text_field :deponent %>
+    </div>
+
+    <div>
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    </div>
+
+    <p><%= form.number_field :lawsuit_id, value: @lawsuit.id %> <%= @lawsuit.id %> </p>
+    
+  </div>
+
+
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+</div>
+
+<br>
+
+<p>params <%= @lawsuit.inspect %></p>
+
+
+<div>
+  <%= link_to "Back to depositions", depositions_path %>
+</div>

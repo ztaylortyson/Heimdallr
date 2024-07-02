@@ -1,13 +1,18 @@
 <div id="<%= dom_id lawsuit %>">
-    <u><%= lawsuit.ct %></u><br>
-    <%= lawsuit.cn %><br>
 
-    Hon. <%= lawsuit.judge %>; Dept: <%= lawsuit.dept %><br>
+    <div class="grid-container">
+        <b><u><%= lawsuit.ct %></u></b><p>Hon. <%= lawsuit.judge %></p>
+        <%= lawsuit.cn %><p>Dept: <%= lawsuit.dept %></p>
+        <p><%= button_to "Dept. Rules", policies_and_procedures(dept_rules.to_i), target: :_blank %></p>
+    </div>
+    
+    <br>
+    <% if lawsuit.courtdate.nil? %>
+        <%= link_to "Add Dates", new_courtdate_path(@lawsuit) %>
+    <% else %>
+        <%= link_to "Update Dates", courtdates_zedit_path(lawsuit.id), class: 'set-depo' %>
+    <% end %>
 
-
-
-
-
-
+   
 
 </div>

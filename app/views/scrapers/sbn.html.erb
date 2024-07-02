@@ -1,0 +1,76 @@
+<%= params %><hr>
+<br>
+<%= @data.inspect %><br> 
+<%= @indb.inspect %><br>
+
+
+<br>
+<hr>
+<%= form_with(model: @oc) do |form| %>
+  <% if @oc.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@oc.errors.count, "error") %> prohibited this @oc from being saved:</h2>
+
+      <ul>
+        <% @oc.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div>
+    <%= form.label :status, style: "display: block" %>
+    <%= form.text_field :status, value: @data[:status] %>
+  </div>
+
+  <div>
+    <%= form.label :full_name, style: "display: block" %>
+    <%= form.text_field :full_name, value: @data[:full_name] %>
+  </div>
+
+  <div>
+    <%= form.label :sbn, style: "display: block" %>
+    <%= form.text_field :sbn, value: @data[:sbn] %>
+  </div>
+
+  <div>
+    <%= form.label :fname, style: "display: block" %>
+    <%= form.text_field :fname, value: @data[:firmname] %>
+  </div>
+
+  <div>
+    <%= form.label :address, style: "display: block" %>
+    <%= form.text_field :address, value: @data[:address] %>
+  </div>
+
+  <div>
+    <%= form.label :phone, style: "display: block" %>
+    <%= form.text_field :phone, value: @data[:phone] %>
+  </div>
+
+  <div>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email, value: @data[:email] %>
+  </div>
+
+  <div>
+    <%= form.label :website, style: "display: block" %>
+    <%= form.text_field :website, value: @data[:website] %>
+  </div>
+
+
+   <div>
+    <%= form.label :lawsuit_id, style: "display: block" %>
+    <%= form.collection_select :lawsuit_id, Lawsuit.order(:ct), :id, :ct, :selected => params[:lawsuit_id] %>
+  </div>
+
+ 
+
+  <div>
+    <%= form.submit "Add/Update Attorney" %>
+  </div>
+<% end %>
+<br>
+
+

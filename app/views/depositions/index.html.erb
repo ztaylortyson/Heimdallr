@@ -1,0 +1,30 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Depositions</h1>
+
+<div id="depositions"> 
+  <table>
+    <tr>
+      <th>DepoID</th>
+      <th>LawsuitID</th>
+      <th>Date</th>
+      <th>Propounding Party</th>
+      <th>Title</th>
+      <th>Show</th>
+      <th>Destroy</th>
+    </tr>
+      <% @depositions.each do |deposition| %>
+    <tr>
+        <td><%= deposition.id %></td>
+        <td><%= deposition.lawsuit_id %></td>
+        <td><%= deposition.depo_date %></td>
+        <td><%= deposition.propounding_party %></td>
+        <td><%= deposition.title %></td>
+        <td><%= link_to "Show", deposition %></td>
+        <td><%= button_to "Remove", deposition, method: :delete %>
+    </tr>
+      <% end %>
+  </table>
+</div>
+
+<%= link_to "New deposition", new_deposition_path %>

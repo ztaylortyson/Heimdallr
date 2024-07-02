@@ -1,0 +1,9 @@
+<h3>Clients</h3>
+<hr> 
+<div class="content">
+
+	<% @tracked_clients.each do |client| %>
+			<%= client.lname %>, <%= client.fname %> <%= link_to "Show", client %><%= link_to "Remove",  users_remove_client_path(client), method: :delete, data: { confirm: 'Are you sure you want to delete this item?' } %><br>
+			<% end %>  
+
+</div>

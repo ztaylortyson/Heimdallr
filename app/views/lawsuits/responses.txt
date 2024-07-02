@@ -1,0 +1,12 @@
+responses.txt
+
+discovery_group
+
+responding_party
+propounding_party
+
+discovery_type :enum
+discovery_set
+
+lawsuit_id
+

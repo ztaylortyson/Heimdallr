@@ -9,49 +9,52 @@ class LawsuitsController < ApplicationController
   # GET /lawsuits/1 or /lawsuits/1.json
   def show
       lawsuit = Lawsuit.find(params[:id])
-      court_dates = lawsuit.courtdate
-      #@complaint = court_dates.complaint.inspect
+      @ctdates = lawsuit.courtdate
+      # if !lawsuit.courtdate.nil?
+      #   if !lawsuit.courtdate.complaint.nil?  
+      #     @complaint = lawsuit.courtdate.complaint.strftime('%m/%d/%Y')
+      #   end
+      #   if !lawsuit.courtdate.answer.nil?
+      #     @answer = lawsuit.courtdate.answer.strftime('%m/%d/%Y')
+      #   else
+      #     @answer = "No responsive pleading on file."
+      #   end
+      #   if !lawsuit.courtdate.cmc.nil?
+      #     @cmc = lawsuit.courtdate.cmc.strftime('%m/%d/%Y') 
+      #   else 
+      #     @cmc = "Not Set"
+      #   end
+      #   if !lawsuit.courtdate.trial.nil?
+      #     @trial = lawsuit.courtdate.trial.strftime('%m/%d/%Y')
+      #     @thirtyb4trial = lawsuit.courtdate.trial.strftime('%m/%d/%Y')
+      #     @oneofive = (lawsuit.courtdate.trial - 105).strftime('%m/%d/%Y')
+      #     @fortyfive = (lawsuit.courtdate.trial - 150).strftime('%m/%d/%Y')
+      #   else
+      #     @trial = "Not Set"
+      #   end
+      #   if !lawsuit.courtdate.trc.nil?
+      #     @trc = lawsuit.courtdate.trc.strftime('%m/%d/%Y')
+      #   else
+      #     @trc = "Not Set"
+      #   end
+      #   if !lawsuit.courtdate.discovery_cutoff.nil?
+      #     @discovery_cutoff =  lawsuit.courtdate.discovery_cutoff.strftime('%m/%d/%Y')
+      #     @thirtyfive = (lawsuit.courtdate.discovery_cutoff - 35).strftime('%m/%d/%Y')
+      #   else
+      #     @discovery_cutoff = "Not Set"
+      #   end
 
-      if !court_dates.answer.nil?
-        @answer = court_dates.answer.inspect
-      else
-        @answer = "No answer on file."
-      end
+      #   puts "+ + + + +    + + + ++   +         + + + + + + "
+      #   puts lawsuit.courtdate.inspect 
+      #   puts @cmc.inspect
+      #end
 
-
-
-      if !court_dates.trial.nil?
-        @trial = court_dates.trial.inspect
-      else
-        @trial = "Not set"
-      end
-
+     # trc local rule 2.1.15 submit trc report, SDSC Rule, 5 court days before
+     # cmc local rule 2.1.9  15 calendar days
       #@oneofive = (court_dates.trial - 105).inspect
+     # mil local 2.1.18 5 court days, opp 2 court days
 
-
-      if !court_dates.trc.nil?
-        @trc = court_dates.trc.inspect
-      else
-        @trc = "Not set"
-      end
-
-      if !court_dates.discovery_cutoff.nil?
-        @discovery_cutoff = court_dates.discovery_cutoff.inspect
-      else
-        @discovery_cutoff = "Not set"
-      end
-
-      if !court_dates.first_expert_exchange.nil?
-        @first_expert_exchange = court_dates.first_expert_exchange.inspect
-      else
-        @first_expert_exchange = "Not set"
-      end
-
-      if !court_dates.second_expert_exchange.nil?
-        @second_expert_exchange = court_dates.second_expert_exchange.inspect
-      else
-        @second_expert_exchange = "Not set"
-      end
+      
   end
 
   # GET /lawsuits/new
@@ -60,6 +63,9 @@ class LawsuitsController < ApplicationController
     puts " = = = = = "
     puts @u
     @lawsuit = Lawsuit.new
+
+    #@lawsuit.courtdate.build
+
   end
 
   # GET /lawsuits/1/edit
@@ -112,6 +118,6 @@ class LawsuitsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def lawsuit_params
-      params.require(:lawsuit).permit(:cn, :ct, :forum, :location, :stage, :status, :judge, :old_judge, :dept, :lroa, :lroa, :atty_for, :user_id, :plt_caption, :def_caption)
+      params.require(:lawsuit).permit(:ct_county, :ct_street_address, :ct_mail_address, :ct_city_zip, :ct_branch, :cn, :ct, :forum, :location, :stage, :status, :judge, :old_judge, :dept, :lroa, :lroa, :atty_for, :user_id, :plt_caption, :def_caption, courtdate_attributes: [:complaint, :answer, :cmc, :trial, :trc, :discovery_cutoff, :first_expert_exchange, :second_expert_exchange, :id, :_destroy])
     end
 end

@@ -1,21 +1,48 @@
-_attorneys
+<h1>_attorneys</h1> <%= params[:id] %> 
+
+<%= form_with url: "scrapers/sbn", method: :get do |form| %>
+  <%= form.label :query, "Add Attorney by SBN:" %>
+  <%= form.text_field :query %>
+  <%= form.hidden_field :lawsuit_id, value: params[:id] %> 
+
+  <%= form.submit "Enter", class: "button" %>
+<% end %>
+
+<p><%= params.inspect %></p>
+
 <table>
 	<tr>
 		<th>Name:</th>
-		<th>Sbn:</th>
+		<th>SBN:</th>
 		<th>Firm:</th>
 		<th>Address:</th>
 		<th>Phone:</th>
 		<th>Email:</th>
+		<th>State Bar:</th>
+		<th>Action</th>
+		<th>Remove</th>
 	</tr>
 <% @lawsuit.ocs.each do |i| %>
 	<tr>
 		<td><%= i.full_name %></td>
-		<td><%= i.sbn %></td>
+		<td><%= i.sbn %> 
 		<td><%= i.fname %></td>
 		<td><%= i.address %></td>
 		<td><%= i.phone %></td>
-		<td><%= i.email %></td>
+		<td><a href="mailto:<%= i.email %>"><%= i.email %></a></td>
+		<td><%= button_to "  -", "https://apps.calbar.ca.gov/attorney/Licensee/Detail/#{i.sbn}", target: :_blank %></td>
+		<td>
+			<div class="dropup">
+				<button class="dropbtn">+</button>
+				<div class="dropup-content">
+					<%= link_to "Envelope", ocs_attyenvelope_path(i) %>
+					<%= link_to "Letter", ocs_attycorres_path(i) %>
+				</div>
+			</div>
+		</td>
+
+		<td><%= button_to "Destroy", i, method: :delete, data: {confirm: "Are you sure?"} %></td>
+			
 	</tr> 
   <% end %>
 </table>

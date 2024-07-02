@@ -1,0 +1,24 @@
+<p style="color: green"><%= notice %></p>
+
+<h3>Clients</h3><%= link_to "Add Client", new_client_path %>
+
+<div id="clients">
+  <% @clients.each do |client| %>
+    <%= client.lname %>, <%= client.fname %>
+
+    <%= link_to "Show", client %>
+
+    <%= link_to "Edit", edit_client_path(client) %> 
+
+    <% if !current_user.tracking_already?(client) %>
+      <%= link_to "Track", user_clients_path(user: current_user, client: client), method: :post %>
+    <% end %><br>
+
+    <%= button_to "Destroy", client, method: :delete %>
+
+  <% end %>
+</div><br>
+
+
+
+

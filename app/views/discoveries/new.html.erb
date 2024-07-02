@@ -1,0 +1,76 @@
+<h3>Generate Discovery in <%= @lawsuit.ct %></h3>
+
+<%= form_with(model: @discovery) do |form| %>
+  <% if @discovery.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@discovery.errors.count, "error") %> prohibited this participant from being saved:</h2>
+
+      <ul>
+        <% @discovery.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+
+    <div>
+      <%= form.label :group %>
+      <%= form.number_field :group %>
+    </div>
+    <div>
+      <%= form.label :date_served %>
+      <%= form.date_field :date_served %>
+    </div>
+    <div>
+      <%= form.label :propounding_party %>
+      <%= form.select(:propounding_party, [['Plaintiff', 'plaintiff'], ['Defendant', 'defendant']]) %>
+    </div>
+
+    <div>
+      <%= form.label :responding_party %>
+      <%= form.select(:responding_party, [['Defendant', 'defendant'],['Plaintiff', 'plaintiff'] ]) %>
+    </div>
+
+    <div>
+      <%= form.label :req_or_resp %>
+      <%= form.select(:req_or_resp, [['Request', 'request'], ['Response', 'response']]) %>
+    </div>
+
+
+    <div>
+      <%= form.label :discovery %>
+      <%= form.select(:discovery, [['SROG', 'srog'],['RFP', 'rfp'], ['RFA', 'rfa'], ['FROG_E', 'frog_e'], ['FROG_G', 'frog_g'] ]) %>
+    </div>
+
+    <div>
+      <%= form.label :set %>
+      <%= form.select(:set, [['ONE', 'one'],['TWO', 'two'], ['THREE', 'three'], ['FOUR', 'four']]) %>
+    </div>
+
+
+    <div>
+      Lawsuit_id: <%= form.number_field :lawsuit_id, value: @lawsuit.id %><%= @lawsuit.id %>
+    </div>
+
+    
+</div>
+
+
+ <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+</div>
+
+<br>
+
+<p>params <%= @lawsuit.inspect %></p>
+
+
+<br>
+
+<div>
+  <%= link_to "Back to discoveries", discoveries_path %>
+</div>

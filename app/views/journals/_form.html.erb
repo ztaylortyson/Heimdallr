@@ -1,0 +1,53 @@
+
+<%= form_with(model: journal) do |form| %>
+  <% if journal.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(journal.errors.count, "error") %> prohibited this journal from being saved:</h2>
+
+      <ul>
+        <% journal.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :lawsuit_id, style: "display: block" %>
+    <%= form.collection_select :lawsuit_id, User.find(current_user.id).lawsuits.order(:ct), :id, :ct %>
+  </div>
+
+    <%= form.label :entry, style: "display: block" %>
+    <%= form.text_area :entry %>
+
+  <div>
+    <%= form.label :binder, style: "display: block" %>
+    <%= form.select :binder, ["Notes", "Correspondence", "Pleadings", "Discovery", "Deposition", "Costs"] %>
+  </div>
+
+
+  
+  <div>
+    <%= form.label :issue, style: "display: block" %>
+    <%= form.select :issue, ["None", "Meet and Confer", "Extension"]%>
+  </div>
+
+  <div>
+    <%= form.label :costs, style: "display: block" %>
+    <%= form.number_field :costs %>
+  </div>
+
+  <div>
+    <%= form.label :status, style: "display: block" %>
+    <%= form.select :status, ["NA", "Pending", "Completed"] %> 
+  </div>
+
+  <div id="hidden-journal-due-date">
+    <%= form.label :due_date %>
+    <%= form.date_field :due_date %> 
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

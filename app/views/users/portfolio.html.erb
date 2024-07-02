@@ -3,13 +3,11 @@
 <div class="content">
 
 	<% @tracked_lawsuits.each do |lawsuit| %>
-			<%= lawsuit.ct %> <%= lawsuit.cn %> <%= link_to "Show", lawsuit %> <%= link_to "Remove", users_remove_path(lawsuit) %><br>
+			<%= lawsuit.ct %> <%= lawsuit.cn %> <%= link_to "Show", lawsuit %> <%= link_to "Remove",  users_remove_path(lawsuit), method: :delete, data: { confirm: 'Are you sure you want to delete this item?' } %><br>
 			<% end %>  
 
 </div>
 
 
 
-<footer class="portfolio-footer">
-	<p>My footer goes here.</p>
-</footer>
+

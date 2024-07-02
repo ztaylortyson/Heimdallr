@@ -1,0 +1,17 @@
+<%= form_with(model: deposition) do |form| %>
+  <% if deposition.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(deposition.errors.count, "error") %> prohibited this deposition from being saved:</h2>
+
+      <ul>
+        <% deposition.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

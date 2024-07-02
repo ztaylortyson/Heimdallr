@@ -1,0 +1,24 @@
+<p style="color: green"><%= notice %></p>
+
+Depo ID: <%= @deposition.id %><br>
+Lawsuit ID: <%= @deposition.lawsuit_id %><br>
+<%= render @deposition %>
+
+<div>
+  <%= link_to "Edit this deposition", edit_deposition_path(@deposition) %> |
+  <%= link_to "Back to depositions", depositions_path %>
+  <%= link_to "Lawsuit - ", lawsuit_path(@deposition.lawsuit_id) %>
+
+  <%= button_to "Destroy this deposition", @deposition, method: :delete %>
+</div>
+<hr>
+<br>
+<hr>
+<%= params.inspect %>
+<%= @deposition.deponent %>
+<hr>
+
+<%= link_to "Generate Deposition", depositions_generate_depo_path(@deposition), class: 'depo-btn'  %>
+<%= link_to "Generate Objections to Deposition", depositions_generate_depo_objections_path(@deposition), class: 'depo-btn'  %>
+
+

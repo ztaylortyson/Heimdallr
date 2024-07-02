@@ -1,19 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HeimdallrRailsBasic</title>
+    <title>Heimdallr</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+   
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    
+    
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+   
+
   </head>
 
   <body>
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
+        
         <%= render 'shared/nav' %> 
     <%= yield %>
+    <footer class="portfolio-footer">
+
+        <p><%= link_to "Journal +", new_journal_path, class: 'button' %>
+          <% if params[:action] == "show" %>
+            hello 
+          <% end %> 
+        </p>
+   
+    </footer>
   </body>
+    <script>
+      $(function) {
+          $("h1").fadeOut(2000);
+        }
+    </script>
 </html>

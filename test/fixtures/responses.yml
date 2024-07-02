@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  group: MyString
+  responding_party: MyString
+  propounding_party: MyString
+  discovery_type: MyString
+  discovery_set: MyString
+  lawsuit: one
+
+two:
+  group: MyString
+  responding_party: MyString
+  propounding_party: MyString
+  discovery_type: MyString
+  discovery_set: MyString
+  lawsuit: two

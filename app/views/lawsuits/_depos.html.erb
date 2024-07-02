@@ -1,0 +1,30 @@
+<% if @lawsuit.depositions.any? %>
+    <table>
+      <tr>
+        <th>Date</th>
+        <th>Propounding Party</th>
+        <th>Title</th>
+        <th>Deponent</th>
+        <th>Show</th>
+        <th>Remove</th>
+      </tr>
+      <% @lawsuit.depositions.each do |i| %>
+      <tr>
+        <td><%= i.depo_date %></td>
+        <td><%= i.propounding_party %></td>
+        <td><%= i.title %></td>
+        <td><%= i.deponent %>
+        <td><%= link_to "Show", i %></td>
+          <td><%= button_to "Destroy", i, method: :delete %></td>
+      </tr>
+          <% end %>
+    </table>
+<% else %>
+  <%= @lawsuit.depositions.count %> depositions set.
+<% end %><br>
+
+      <div class="set-depo">
+        <%= link_to "Set Depo", new_deposition_path(@lawsuit), class: "set-depo" %>
+   </div>
+
+  

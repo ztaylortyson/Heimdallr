@@ -3,12 +3,28 @@
 <h3>Attorneys</h3>
 
 <div id="ocs">
-  <% @ocs.each do |oc| %>
-    <%= render oc %>
-    <p>
-      <%= link_to "Show this oc", oc %>
-    </p>
-  <% end %>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>SBN</th>
+      <th>Firm</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Show</th>
+    </tr>
+      <% @ocs.each do |oc| %>
+    <tr> 
+        <td><%= oc.full_name %></td>
+        <td><%= oc.sbn %></td>
+        <td><%= oc.fname %></td>
+        <td><%= oc.address %></td>
+        <td><%= oc.phone %></td>
+        <td><a href="mailto:<%= oc.email %>"><%= oc.email %></a></td>
+        <td><%= link_to "Show", oc %></td>
+    </tr>
+      <% end %>
+  </table>
 </div>
 
 

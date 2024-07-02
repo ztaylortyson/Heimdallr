@@ -1,0 +1,34 @@
+user_journal<br>
+<%= params.inspect %><br>
+<%= form_with url: "/search_journal", method: :get do |form| %>
+  <%= form.label :query, "Search journal:", id: "input" %>
+  <%= form.text_field :query, id: "input" %>
+  <%= form.hidden_field :ulawsuit, value: params[:format] %>
+  <%= form.submit "Search", id: "input-search" %>
+<% end %>
+
+<h1><%= @lawsuit.ct %> - Journal Entries</h1>
+ <table>
+    <tr>
+      <th>Lawsuit ID:</th>
+      <th>Created:</th>
+      <th>Entry</th>
+      <th>Binder</th>
+      <th>Issue</th>
+      <th>Costs</th>
+      <th>Edit</th>
+      <th>Destroy</th>
+    </tr>
+      <% @journals.each do |journal| %>
+    <tr>
+        <td><%= journal.lawsuit_id %></td>
+        <td><%= journal.created_at.strftime("%m-%d-%Y") %></td>
+        <td><%= journal.entry %></td>
+        <td><%= journal.binder %></td>
+        <td><%= journal.issue %></td>
+        <td><%= journal.costs %></td>
+        <th><%= link_to "", edit_journal_path(journal), class: "button" %>
+        <td><%= button_to "Remove", journal, method: :delete %>
+    </tr>
+      <% end %>
+  </table>

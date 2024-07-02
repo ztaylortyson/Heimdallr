@@ -1,0 +1,18 @@
+pnc<br>
+<%= params.inspect %><br>
+<%= @params.inspect %><br>
+<%= @params.class %><br>
+
+
+
+<div>
+  <%= link_to "Retainer Agreement", initiate_nc_retainer_path(params.permit(:fname, :mname, :lname, :email, :phone)), class: "greybutton" %>
+  <%= link_to "Auth4Release", initiate_nc_auth_path(params.permit(:fname, :mname, :lname, :email, :phone)), class: "greybutton" %>
+  <%= link_to "Intake Sheet", "#", class: "greybutton" %>
+  <%= link_to "Filing Waiver", "#", class: "greybutton" %>
+  <%= link_to "Conflict Waiver", "#", class: "greybutton" %>
+</div>
+<br>
+<hr>
+<br>
+ 

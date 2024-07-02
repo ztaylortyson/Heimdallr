@@ -1,7 +1,40 @@
 
-<p>Trial: <%= @trial %></p> 
-<p>TRC: <%= @trc %></p>
-<p>105 Days before: <%= @oneofive %></p>
-<p>Discovery Cutoff: <%= @discovery_cutoff %><p>
-<p>1st Expert Exchange: <%= @first_expert_exchange %></p>
-<p>2nd Expert Exchange <%= @second_expert_exchange %></p>
+<% if @ctdates.nil? %>
+	<p><%= @ctdates %></p>
+<% else %>
+	<div class="grid-container">
+		<div class="ctdates">
+			Trial Call: <%= @ctdates.trial %>
+		</div>
+		<div class="ctdates">
+			30 days before Trial: <%= @ctdates.trial - 1 if !@ctdates.trial.nil? %>
+		</div>
+		<div class="ctdates">
+			Trial Readiness Conference: <%= @ctdates.trc %>
+		</div>
+		<div class="ctdates">
+			15 days before TRC: <%= @ctdates.trc - 15 if !@ctdates.trc.nil? %>
+		</div>
+		<div class="ctdates">
+			Discovery CutOff: <%= @ctdates.discovery_cutoff %>
+		</div>
+		<div class="ctdates">
+			35 days before Discovery CutOff: <%= @ctdates.discovery_cutoff - 35 if !@ctdates.discovery_cutoff.nil? %>
+		</div>
+		<div class="ctdates">
+			MSJ Deadline: <%= @ctdates.trial - 105 if !@ctdates.trial.nil? %>
+		</div>
+		<div class="ctdates">
+			45 days before MSJ Deadline: <%= @ctdates.trial - 150 if !@ctdates.trial.nil? %>
+		</div>
+		<div class="ctdates">
+			1st Exchange: <%= @ctdates.first_expert_exchange %>
+		</div>
+		<div class="ctdates">
+			
+		</div>
+		<div class="ctdates">
+			2nd Exchange: <%= @ctdates.second_expert_exchange %>
+		</div>
+	</div>
+<% end %>

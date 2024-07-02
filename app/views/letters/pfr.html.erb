@@ -1,0 +1,15 @@
+pfr<br>
+<%= @client.inspect %><br>
+<%= params.inspect %>
+<hr>
+<h3>Create Personnel File Request Letter</h3>
+<%= form_with url: "/employer", method: :get do |form| %>
+	<%= form.label :client_id %>
+	<%= form.number_field :client_id, value: @client.id.to_i %>
+  <%= form.label :employer, "To Employer:" %>
+  <%= form.text_field :employer, style:"width:40%" %>
+  <%= form.submit "Enter" %>
+<% end %>
+<br>
+<%= link_to "Back", client_path(@client) %>
+

@@ -1,0 +1,34 @@
+<h1>_discovery</h1><br>
+<% if @lawsuit.discoveries.any? %>
+    <table>
+      <tr>
+        <th>Group</th>
+        <th>Date Served</th>
+        <th>Propounding Party</th>
+        <th>Request / Response</th>
+        <th>Method</th>
+        <th>Set Number</th>
+        <th>Show</th>
+        <th>Remove</th>
+      </tr>
+      <% @lawsuit.discoveries.each do |i| %>
+      <tr>
+        <td><%= i.group %>
+        <td><%= i.date_served %></td>
+        <td><%= i.propounding_party %></td>
+        <td><%= i.req_or_resp %></td>
+        <td><%= i.discovery %></td>
+        <td><%= i.set %></td>
+        
+        <td><%= link_to "Show", i %></td>
+        <td><%= button_to "Destroy", i, method: :delete %></td>
+      </tr>
+          <% end %>
+    </table>
+<% else %>
+  No Discovery Generated.
+<% end %><br>
+
+<div class="set-depo">
+        <%= link_to "Generate Discovery", new_discovery_path(@lawsuit), class: "set-depo" %>
+</div>

@@ -5,11 +5,19 @@
 <div id="lawsuits">
   <% @lawsuits.each do |lawsuit| %>
     <%= lawsuit.ct %><%= lawsuit.cn %>
+
+    <%= lawsuit.status %>
+
     <%= link_to "Show", lawsuit %>
+
+    <%= link_to "Edit", edit_lawsuit_path(lawsuit) %> 
+
 
     <% if !current_user.already_tracking?(lawsuit) %>
       <%= link_to "Track", user_lawsuits_path(user: current_user, lawsuit: lawsuit), method: :post %>
     <% end %><br>
+
+    <%= button_to "Destroy", lawsuit, method: :delete %>
 
   <% end %>
 </div>

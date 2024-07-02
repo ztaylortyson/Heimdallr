@@ -74,3 +74,9 @@ group :test do
 end
 
 gem "devise", "~> 4.9"
+
+gem "byebug", "~> 11.1"
+
+gem "nokogiri", "~> 1.16"
+
+gem 'jquery-rails'

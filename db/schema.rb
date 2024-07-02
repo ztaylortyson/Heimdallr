@@ -10,7 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_28_203138) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_01_172049) do
+  create_table "clients", force: :cascade do |t|
+    t.string "fname"
+    t.string "mname"
+    t.string "lname"
+    t.string "email"
+    t.string "phone"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.date "dob"
+    t.string "ssn"
+    t.string "gender"
+    t.boolean "married"
+    t.text "summary"
+    t.date "doh"
+    t.date "dot"
+    t.string "job_title"
+    t.string "work_email"
+    t.boolean "exempt"
+    t.boolean "commissions"
+    t.integer "pay_type"
+    t.decimal "pay_rate", precision: 8, scale: 2
+    t.string "emergency_contact"
+    t.string "emergency_phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "courtdates", force: :cascade do |t|
     t.date "complaint"
     t.string "old_complaint"
@@ -34,6 +63,48 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_203138) do
     t.index ["lawsuit_id"], name: "index_courtdates_on_lawsuit_id"
   end
 
+  create_table "depositions", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date "depo_date"
+    t.time "depo_time"
+    t.string "propounding_party"
+    t.string "title"
+    t.integer "lawsuit_id"
+    t.boolean "doc_req"
+    t.string "deponent"
+  end
+
+  create_table "discoveries", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "group"
+    t.date "date_served"
+    t.string "propounding_party"
+    t.string "responding_party"
+    t.integer "req_or_resp"
+    t.integer "discovery"
+    t.integer "set"
+    t.integer "service"
+    t.date "resp_due"
+    t.text "atty_notes"
+    t.integer "extension_id"
+    t.integer "lawsuit_id"
+  end
+
+  create_table "journals", force: :cascade do |t|
+    t.integer "lawsuit_id", null: false
+    t.text "entry"
+    t.string "binder"
+    t.string "issue"
+    t.decimal "costs", precision: 8, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "status"
+    t.date "due_date"
+    t.index ["lawsuit_id"], name: "index_journals_on_lawsuit_id"
+  end
+
   create_table "lawsuits", force: :cascade do |t|
     t.string "cn"
     t.string "ct"
@@ -52,6 +123,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_203138) do
     t.string "def_caption"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "dname"
+    t.string "ct_county"
+    t.string "ct_street_address"
+    t.string "ct_mail_address"
+    t.string "ct_city_zip"
+    t.string "ct_branch"
     t.index ["user_id"], name: "index_lawsuits_on_user_id"
   end
 
@@ -66,6 +143,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_203138) do
     t.integer "lawsuit_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
     t.index ["lawsuit_id"], name: "index_ocs_on_lawsuit_id"
   end
 
@@ -77,7 +155,32 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_203138) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "rep"
+    t.string "type"
+    t.string "address"
+    t.string "phone"
+    t.string "email"
     t.index ["lawsuit_id"], name: "index_participants_on_lawsuit_id"
+  end
+
+  create_table "responses", force: :cascade do |t|
+    t.string "group"
+    t.string "responding_party"
+    t.string "propounding_party"
+    t.string "discovery_type"
+    t.string "discovery_set"
+    t.integer "lawsuit_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lawsuit_id"], name: "index_responses_on_lawsuit_id"
+  end
+
+  create_table "user_clients", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "client_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_user_clients_on_client_id"
+    t.index ["user_id"], name: "index_user_clients_on_user_id"
   end
 
   create_table "user_lawsuits", force: :cascade do |t|
@@ -111,8 +214,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_203138) do
   end
 
   add_foreign_key "courtdates", "lawsuits"
+  add_foreign_key "journals", "lawsuits"
   add_foreign_key "ocs", "lawsuits"
   add_foreign_key "participants", "lawsuits"
+  add_foreign_key "responses", "lawsuits"
+  add_foreign_key "user_clients", "clients"
+  add_foreign_key "user_clients", "users"
   add_foreign_key "user_lawsuits", "lawsuits"
   add_foreign_key "user_lawsuits", "users"
 end

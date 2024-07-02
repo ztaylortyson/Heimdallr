@@ -1,0 +1,46 @@
+<%= form_with(model: response) do |form| %>
+  <% if response.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(response.errors.count, "error") %> prohibited this response from being saved:</h2>
+
+      <ul>
+        <% response.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :group, style: "display: block" %>
+    <%= form.text_field :group %>
+  </div>
+
+  <div>
+    <%= form.label :responding_party, style: "display: block" %>
+    <%= form.select(:propounding_party, [['Plaintiff', 'plaintiff'], ['Defendant', 'defendant']]) %>
+  </div>
+
+  <div>
+    <%= form.label :propounding_party, style: "display: block" %>
+    <%= form.select(:propounding_party, [['Defendant', 'defendant'], ['Plaintiff', 'plaintiff']]) %>
+  </div>
+
+  <div>
+    <%= form.label :discovery_type, style: "display: block" %>
+    <%= form.select(:discovery_type, [['SROG', 'srog'],['RFP', 'rfp'], ['RFA', 'rfa'], ['FROG_E', 'frog_e'], ['FROG_G', 'frog_g'] ]) %>
+  </div>
+
+  <div>
+    <%= form.label :discovery_set, style: "display: block" %>
+    <%= form.select(:discovery_set, [['ONE', 'one'],['TWO', 'two'], ['THREE', 'three'], ['FOUR', 'four']]) %>
+  </div>
+
+  <div>
+    Lawsuit_id: <%= form.number_field :lawsuit_id, value: @lawsuit.id %><%= @lawsuit.id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

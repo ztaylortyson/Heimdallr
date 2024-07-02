@@ -1,33 +1,105 @@
+<%= link_to "Edit lawsuit", edit_lawsuit_path %>
 <p style="color: green"><%= notice %></p>
-<%= link_to "Edit this lawsuit", edit_lawsuit_path(@lawsuit) %>
-
-<%= render @lawsuit %>
+ 
+<br>
+<%= render @lawsuit %>    
 <hr>
-    Complaint filed: <%= @complaint %> 
-    Answer: <%= @answer %> 
-<hr>
-    <%= render 'courtdates' %>
+<%= render 'courtdates' %>
+<%= link_to "View Journal", user_journal_path(@lawsuit), class: "button" %> 
 <hr>
 <div class="content">
 
     <%= render 'participants' %>
 
-    <%= link_to "Back to lawsuits", lawsuits_path %>
-    <%= link_to "Back to Portfolio", root_path %>
-    <% if current_user.admin == true %>
-      <%= link_to "Edit lawsuit", edit_lawsuit_path %>
-      <%= button_to "Destroy this lawsuit", @lawsuit, method: :delete %> 
-    <% end %> 
-    <hr>
-
+   
+<hr>
     <%= render 'attorneys' %> 
+<hr>
+    <%= render 'disco' %>
 
 </div>
 
+<div>
+    <%= render 'responses' %>
+</div>
 
+<hr>
+
+ <div class="dropup">
+    <button class="dropbtn">Generate Pleading</button>
+    <div class="dropup-content">
+      <%= link_to "Pleading", pleadings_generic_path(@lawsuit) %>
+      <%= link_to "Proof of Service - Electronic", jcfs_pes_path(@lawsuit) %>
+      <%= link_to "Test", pleadings_test_path(@lawsuit) %>
+    </div>
+  </div>
+
+  <div class="dropup">
+    <button class="dropbtn">Judicial Counsel Forms</button>
+    <div class="dropup-content">
+      <%= link_to "RFA", jcfs_rfa_path(@lawsuit) %>
+      <%= link_to "Request for Entry of Default", jcfs_req_entry_of_default_path(@lawsuit) %>
+      <%= link_to "Peremptory Challenge", jcfs_peremptory_challenge_path(@lawsuit) %>
+      <%= link_to "Ex Parte Application", jcfs_ex_parte_path(@lawsuit) %>
+      <%= link_to "Declaration", jcfs_decl_path(@lawsuit) %>
+      <%= link_to "CMC Statement", jcfs_cms_path(@lawsuit) %>
+      <%= link_to "Attachment", jcfs_attachment_path(@lawsuit) %>
+      <%= link_to "Amendment to Complaint", jcfs_amendment_to_complaint_path(@lawsuit) %>
+    </div>
+  </div>
+
+  <div class="dropup">
+    <button class="dropbtn">Discovery</button>
+    <div class="dropup-content">
+      <%= link_to "Form Interrogatories - General", jcfs_frog_g_path(@lawsuit) %>
+      <%= link_to "Form Interrogatories - Employment", jcfs_frog_e_path(@lawsuit) %>
+      <%= link_to "Request for Production of Documents", discoveries_rfp_path(@lawsuit) %>
+      <%= link_to "Initial Disclosures", discoveries_initial_disclosures_path(@lawsuit) %>
+    </div>
+  </div>
+
+  <div class="dropup">
+    <button class="dropbtn">Responses</button>
+    <div class="dropup-content">
+      <%= link_to "Generate New Response", new_response_path(@lawsuit) %>
+      <%= link_to "Verification", "#" %>
+    </div>
+  </div>
+
+  <div class="dropup">
+    <button class="dropbtn">Law & Motion</button>
+    <div class="dropup-content">
+      <%= link_to "Notice", lawandmotions_notice_of_motion_path(@lawsuit) %>
+      <%= link_to "Memo Points and Authorities", lawandmotions_memo_panda_path(@lawsuit) %>
+      <%= link_to "Separate Statement", lawandmotions_separate_statement_path(@lawsuit) %>
+      <%= link_to "Declaration", lawandmotions_declaration_path(@lawsuit) %>
+      <%= link_to "[Proposed] Order", lawandmotions_proposed_order_path(@lawsuit) %>
+    </div>
+  </div>
+
+
+  <div class="dropup">
+    <button class="dropbtn">Proof of Service</button>
+    <div class="dropup-content">
+      <%= link_to "Attachment - Electronic - Persons", jcfs_electronic_persons_path(@lawsuit) %>
+      <%= link_to "Attachment - Electronic - Documents", jcfs_electronic_documents_path(@lawsuit) %>
+      <%= link_to "Proof of Electronic Service", jcfs_electronic_service_path(@lawsuit) %>
+    </div>
+  </div>
+
+<hr>
+  
+  <%= render 'depos' %>
+  <br>
+<hr>
 
 <footer class="portfolio-footer">
-  <p>Generate Documents</p>
-  <p> <%= link_to "Pleading", pleadings_generic_path(@lawsuit) %>
-      <%= link_to "Proof of Service - Electronic", jcfs_pes_path(@lawsuit) %> </p>
+
+      <%= link_to "Back to lawsuits", lawsuits_path %>
+      <%= link_to "Back to Portfolio", root_path %>
+      <% if current_user.admin == true %>
+      <%= link_to "Edit lawsuit", edit_lawsuit_path %>
+      <%= button_to "Destroy this lawsuit", @lawsuit, method: :delete %> 
+      <% end %> 
+
 </footer>
